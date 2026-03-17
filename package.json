@@ -1,7 +1,11 @@
 {
-  "name": "eventyrsailinglogistics",
+  "name": "eventyr-sailing-",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malikaru31-gif/eventyr-sailing-.git"
+  },
   "engines": {
     "node": "24.x"
   },
