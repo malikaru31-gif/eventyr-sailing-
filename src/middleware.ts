@@ -5,19 +5,8 @@ const DEV_GATE_COOKIE = "dev_gate_auth";
 
 export function middleware(request: NextRequest) {
   const envEnabled = process.env.ENABLE_DEV_GATE === "true";
-  const host =
-    request.headers.get("host") ??
-    request.nextUrl.hostname ??
-    request.nextUrl.host ??
-    "";
-  const isEventyrProduction =
-    (process.env.VERCEL_ENV === "production" ||
-      process.env.NODE_ENV === "production") &&
-    host.includes("eventyrsailinglogistics.com");
 
-  // Production eventyr: always gate. Other: gate only if ENABLE_DEV_GATE=true.
-  // To disable on production, remove the isEventyrProduction check below.
-  const enableGate = isEventyrProduction || envEnabled;
+  const enableGate = envEnabled;
   if (!enableGate) {
     return NextResponse.next();
   }
